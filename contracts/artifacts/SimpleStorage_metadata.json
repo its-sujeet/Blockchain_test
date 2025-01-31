@@ -43,6 +43,24 @@
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "suj",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "favnum",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			}
 		],
 		"devdoc": {
@@ -73,11 +91,11 @@
 	},
 	"sources": {
 		"contracts/SimpleStorage.sol": {
-			"keccak256": "0xff91fa1dbe3ded558f47848a22a651d4028e97b4684be816360123af90a5d8f4",
+			"keccak256": "0xe2119bff249d87ef51ea333390246d746975ecf6d5d9629982230e26ac3f4a02",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://b9f3f93a21e253baab6de087c429f22b4ce63fdedbf38fde6193a9a34aed6758",
-				"dweb:/ipfs/QmNvto1reBh9p7F1Quwx7gP1vV4gqvpwqFAepE9MFqGC5n"
+				"bzz-raw://5637af940f8d1e8219289446938ee21e4cb1eaa39bf9b84c7353e6347a103282",
+				"dweb:/ipfs/QmW1H54S7qp6xq9L39yUVrS9uyK4cJND4RnRPhhGMeLLA1"
 			]
 		}
 	},
