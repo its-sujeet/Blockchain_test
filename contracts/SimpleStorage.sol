@@ -17,7 +17,7 @@ contract SimpleStorage{
 
         //  people public suj = people({favnum : 75, name : "Arush"});
 
-        function store (uint256 _favnum) public {
+        function store (uint256 _favnum) public virtual  {
             favnum = _favnum;
             
 
@@ -31,7 +31,7 @@ contract SimpleStorage{
         function addpeople(string memory _name, uint256 _value) public {
             peoplelist.push(people({favnum : _value, name: _name}));
             pepolist[_name] = _value;
-            
+
 
         }
 
