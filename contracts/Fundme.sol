@@ -8,9 +8,16 @@ contract FundMe{
 
     uint256 public minusd =5 * 1e18;
 
+    address [] public  funders;
+    mapping (address => uint256) public  addresstoamountfunded;
+
+
     function fund() public payable {
 
         require(getConversionRate(msg.value) > 1e18 , "Didn't send enough.");
+        funders.push(msg.sender);
+        addresstoamountfunded[msg.sender] = msg.value;
+        
 
     }
     function getprice() public view returns(uint256){
