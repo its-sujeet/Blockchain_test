@@ -6,11 +6,11 @@ import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
 contract FundMe{
 
-    uint256 public minusd =5;
+    uint256 public minusd =5 * 1e18;
 
     function fund() public payable {
 
-        require(msg.value > 1e18 , "Didn't send enough.");
+        require(getConversionRate(msg.value) > 1e18 , "Didn't send enough.");
 
     }
     function getprice() public view returns(uint256){
@@ -19,7 +19,7 @@ contract FundMe{
         AggregatorV3Interface priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
         (,int256 price, , ,) = priceFeed.latestRoundData();
 
-        return uint(price * 1e10);
+        return uint256(price * 1e10);
 
     }
 
@@ -27,6 +27,14 @@ contract FundMe{
 
         return AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306).version();
     }
+
+    function getConversionRate(uint256 ethamount) public  view returns (uint256){
+        uint256 ethprice = getprice();
+        uint256 ethPriceInUsd = (ethprice * ethamount) / 1e18;
+        return ethPriceInUsd;
+
+    }
+
 
 }
 
