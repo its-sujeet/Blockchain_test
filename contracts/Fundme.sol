@@ -13,9 +13,13 @@ contract FundMe{
         require(msg.value > 1e18 , "Didn't send enough.");
 
     }
-    function getprice() public {
+    function getprice() public view returns(uint256){
         // addrress 0x694AA1769357215DE4FAC081bf1f309aDC325306
 
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
+        (,int256 price, , ,) = priceFeed.latestRoundData();
+
+        return uint(price * 1e10);
 
     }
 
